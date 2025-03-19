@@ -245,24 +245,13 @@ plt.show()
 
 
 ```python
-plt.figure(figsize=(3, 5))
 sns.displot(data=df, x="arrival_month", hue="type_of_meal_plan", multiple="stack", kind="kde",warn_singular=False)
+plt.show()
 ```
 
 
-
-
-    <seaborn.axisgrid.FacetGrid at 0x272520f6ba0>
-
-
-
-
-    <Figure size 300x500 with 0 Axes>
-
-
-
     
-![png](output_7_2.png)
+![png](output_7_0.png)
     
 
 
@@ -271,50 +260,37 @@ sns.displot(data=df, x="arrival_month", hue="type_of_meal_plan", multiple="stack
 
 ```python
 plt.figure(figsize=(12, 12))
-
 sns.histplot(data=df, x="avg_price_per_room", hue="room_type_reserved", multiple="stack", kde=True)
+plt.show()
 ```
 
 
-
-
-    <Axes: xlabel='avg_price_per_room', ylabel='Count'>
-
-
-
-
     
-![png](output_9_1.png)
+![png](output_9_0.png)
     
 
 
-#### Un mapa de calor sobre cuando los adultos sin niños van al hotel y que habitación pagan
+#### Un mapa de calor sobre cuando los adultos sin niños van al hotel y que habitación 
 
 
 ```python
 pivot = df.pivot_table(values='no_of_adults_without_children', index='room_type_reserved', columns='arrival_month', aggfunc='mean')
 sns.heatmap(pivot, annot=True, cmap="coolwarm", fmt=".2f", annot_kws={"size": 10})
 plt.title("Adultos sin niños por tipo de habitación y mes")
+plt.show()
 ```
 
 
-
-
-    Text(0.5, 1.0, 'Adultos sin niños por tipo de habitacion y mes')
-
-
-
-
     
-![png](output_11_1.png)
+![png](output_11_0.png)
     
 
 
-### Bueno y, ¿qué podemos sacar de esto?
+## Bueno y, ¿qué podemos sacar de esto?
 
-Estas pequeñas gráficas que podemos sacar en poco tiempo ya nos brindan mucha información sobre que habitaciones se venden más, cuando se venden más habitaciones y a que precio se venden más. Esto nos puede llevar a tomar decisiones como en cuando subir o bajar los precios, promover estrategias para ayudar a las ventas de otros tipos de habitaciones o incluso focalizar un tipo de público al que vaya dirigido el hotel en ciertas fechas.
+Estas pequeñas gráficas, que podemos generar en poco tiempo, ya nos brindan mucha información sobre qué habitaciones se venden más, cuándo se venden más y a qué precio. Esto nos permite tomar decisiones estratégicas, como ajustar los precios en determinadas temporadas, diseñar promociones para impulsar la venta de otros tipos de habitaciones o incluso enfocar el hotel hacia un público específico en ciertas fechas.
 
-Esto es un simple análisis que conseguimos analizando las gráficas de los datos. Sin embargo, el Big Data tiene bajo sus brazos muchas ramas de la ciencia de los datos donde también entra la estadistica predictiva. Con estos datos se pueden contruir modelos predictivos que ayuden al manejo de fondos y tomas de decisiones.
+Este es solo un análisis básico obtenido a partir de la visualización de los datos. Sin embargo, el Big Data abarca muchas más áreas dentro de la ciencia de los datos, incluyendo la estadística predictiva. Con estos datos, se pueden construir modelos predictivos que ayuden a optimizar la gestión de fondos y a tomar decisiones más precisas y eficientes.
 
 
 ### Referencias
@@ -328,8 +304,3 @@ Esto es un simple análisis que conseguimos analizando las gráficas de los dato
 
 - [CodeToDevs Blog sobre regresión lineal](https://www.codetodevs.com/regresion-lineal-simple-con-python/)
 
-
-
-```python
-
-```
